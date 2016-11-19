@@ -9,7 +9,7 @@ file_path = "/opt/atlassian/jira/bin/setenv.sh"
 
 def options_valid():
     if min_memory and max_memory:
-        if min_memory < max_memory:
+        if int(min_memory) < int(max_memory):
             return True
         else:
             print "Can't run: min value is bigger than max value."
@@ -24,9 +24,9 @@ def main():
         infile = open(file_path, "r")
         for line in infile:
             if "JVM_MINIMUM_MEMORY=" in line and min_memory:
-                line = 'JVM_MINIMUM_MEMORY="'+min_memory+'"\n'
+                line = 'JVM_MINIMUM_MEMORY="'+min_memory+'m"\n'
             if "JVM_MAXIMUM_MEMORY=" in line and max_memory:
-                line = 'JVM_MAXIMUM_MEMORY='+max_memory+'"\n'
+                line = 'JVM_MAXIMUM_MEMORY="'+max_memory+'m"\n'
             new_content += line
         infile.close()
         outfile = open(file_path, "w")
