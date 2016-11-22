@@ -21,11 +21,10 @@ RUN 	rm -rf /root/install-jira && \
  	yum clean all 
 
 # Do some configuration
-ADD 	docker-entrypoint.sh /
-ADD	change_JVM_in_Jira_bin_setenv_sh.py /
-RUN 	chmod 777 /docker-entrypoint.sh
+ADD 	docker-scripts/ /root/docker-scripts/
+RUN 	chmod 777 /root/docker-scripts/docker-entrypoint.sh
 VOLUME 	["/opt/atlassian/jira/", "/var/atlassian/application-data/jira/"]
 EXPOSE 	8080
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/root/docker-scripts/docker-entrypoint.sh"]
 CMD	["/bin/bash"]
 
