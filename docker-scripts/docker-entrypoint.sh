@@ -7,7 +7,7 @@ echo 'docker-entrypoint.sh in the Jira container has been started.';
 HELP_TEXT="To set the RAM size for the JVM, type:
 --min-memory <RAM-in-MB> --max-memory <RAM-in-MB>
 other arguments are currently not supported."
-base_command="python change_JVM_in_Jira_bin_setenv_sh.py"
+base_command="python /root/docker-scripts/change_JVM_in_Jira_bin_setenv_sh.py"
 opt1=""
 opt2=""
 to_run=""
