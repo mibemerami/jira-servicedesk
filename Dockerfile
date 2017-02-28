@@ -12,7 +12,7 @@ ADD 	docker-scripts/ /root/docker-scripts/
 
 # Run commands
 	# General preparation
-RUN 	yum update && \
+RUN 	yum update -y && \
  	adduser jirauser && \
 	# Get the Jira binary
  	yum install -y wget && \
@@ -28,7 +28,7 @@ RUN 	yum update && \
 	chown -R jira:jira $JIRA_HOME && \
 	# Do some clean up
  	rm -rf /root/install-jira && \
- 	yum clean all 
+ 	yum clean all -y
 
 # Do some configuration
 VOLUME 	["$JIRA_INSTALL", "$JIRA_HOME"]
