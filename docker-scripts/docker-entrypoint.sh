@@ -37,5 +37,5 @@ $to_run
 
 ########## Start actual process ######################################
 echo "start jira"
-exec /opt/atlassian/jira/bin/start-jira.sh -fg jirauser
+exec /usr/bin/supervisord
 
